@@ -20,12 +20,12 @@ class ChatbotView(APIView):
         engine = request.query_params.get('engine', "groq").lower()
         pregunta = serializer.validated_data["pregunta"].lower()
 
-        Cliente = Cliente.objects.all()
-        if not Cliente:
+        cliente = Cliente.objects.all()
+        if not cliente:
             return Response({"message": "No puedo generar la respuesta"}, status=status.HTTP_404_NOT_FOUND)
-        contexto = "\n".join(
-            [f"cliente: {p.nombre.lower()} | Apellido: {p.segundo_apellido.lower()} | " for p in Cliente])
-        
+        contexto = "CLIENTES:\n".join(
+            [f"cliente: {p.primer_nombre} | Apellido: {p.segundo_apellido} | " for p in cliente])
+
         SYSTEM_PROMPT = (
             "Eres el asistente del sistema de clientes de seguro Durango. "
             "Usa solo la información provista en el 'CONTEXT' para responder "

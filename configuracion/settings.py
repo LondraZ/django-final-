@@ -21,7 +21,8 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API = os.getenv("GROQ_API")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
