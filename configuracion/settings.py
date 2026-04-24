@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',#estos tienen que ver con html, se ignoran
     'django.contrib.staticfiles', #archivos estaticos
     'rest_framework',
-    'cuentas'
+    'cuentas',
+    'chatbot'
 ]
 #este 
 MIDDLEWARE = [
